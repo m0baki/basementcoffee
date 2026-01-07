@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basement Cafe - Cozy Corner Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #aaa;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23222" width="1200" height="600"/><text x="50%" y="50%" font-size="120" fill="%23444" text-anchor="middle" dominant-baseline="middle" font-family="serif">☕</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 4px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: white;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about {
+            background: #f5f5f5;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+        }
+
+        .menu {
+            background: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-item {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .menu-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .price {
+            color: #666;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact {
+            background: #2d2d2d;
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BASEMENT CAFE</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>BASEMENT CAFE</h1>
+            <p>Your underground escape for exceptional coffee</p>
+            <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div>
+                <h2>About Us</h2>
+                <p>Nestled beneath the bustling streets, Basement Cafe offers a cozy retreat where exceptional coffee meets timeless ambiance. Our carefully curated selection of artisan coffees and handcrafted beverages creates the perfect atmosphere for work, conversation, or quiet contemplation.</p>
+                <p style="margin-top: 1rem;">We believe in the simple pleasures: a perfectly pulled espresso, the aroma of freshly ground beans, and the warmth of genuine hospitality.</p>
+            </div>
+            <div style="background: #ddd; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">☕</div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>Espresso</h3>
+                <p>Rich and bold, our signature espresso</p>
+                <p class="price">$3.50</p>
+            </div>
+            <div class="menu-item">
+                <h3>Cappuccino</h3>
+                <p>Velvety foam meets smooth espresso</p>
+                <p class="price">$4.50</p>
+            </div>
+            <div class="menu-item">
+                <h3>Cold Brew</h3>
+                <p>Smooth, refreshing, perfectly chilled</p>
+                <p class="price">$4.00</p>
+            </div>
+            <div class="menu-item">
+                <h3>Latte</h3>
+                <p>Creamy steamed milk with espresso</p>
+                <p class="price">$5.00</p>
+            </div>
+            <div class="menu-item">
+                <h3>Americano</h3>
+                <p>Classic espresso with hot water</p>
+                <p class="price">$3.75</p>
+            </div>
+            <div class="menu-item">
+                <h3>Pastries</h3>
+                <p>Fresh-baked daily selections</p>
+                <p class="price">$3.00</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 style="color: white;">Visit Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Location</h3>
+                <p>123 Underground Avenue<br>Downtown District</p>
+            </div>
+            <div class="contact-item">
+                <h3>Hours</h3>
+                <p>Mon-Fri: 7am - 8pm<br>Sat-Sun: 8am - 9pm</p>
+            </div>
+            <div class="contact-item">
+                <h3>Contact</h3>
+                <p>Phone: (555) 123-4567<br>Email: hello@basementcafe.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Basement Cafe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
